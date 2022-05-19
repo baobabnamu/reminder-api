@@ -44,7 +44,7 @@ public class QuizController {
     }
 
 //    Get QuizList API
-    @GetMapping("/user/{quizSpace}") // path variable 매칭됨
+    @GetMapping("/quiz/{quizSpace}") // path variable 매칭됨
     public QuizModel getQuizList(
             @PathVariable("quizSpace") int quizSpace
     ) {
