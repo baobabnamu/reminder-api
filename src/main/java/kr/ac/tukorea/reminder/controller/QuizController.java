@@ -4,6 +4,9 @@ import kr.ac.tukorea.reminder.mapper.QuizMapper;
 import kr.ac.tukorea.reminder.model.QuizModel;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+import java.util.Map;
+
 @RestController
 public class QuizController {
     private QuizMapper mapper;
@@ -45,14 +48,14 @@ public class QuizController {
 
 //    Get QuizList API
     @GetMapping("/quiz/{quizSpace}") // path variable 매칭됨
-    public QuizModel getQuizList(
+    public List<QuizModel> getQuizList(
             @PathVariable("quizSpace") int quizSpace
     ) {
         return mapper.getQuizList(quizSpace);
     }
 
 //  Update Quiz Space API
-    @PutMapping("/quiz/updateSpace") // path variable 매칭됨
+    @PutMapping("/quiz/updateSpace")
     public void modifyQuizSpace(
             @RequestBody() QuizModel quizModel
     ) {

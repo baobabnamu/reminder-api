@@ -3,6 +3,8 @@ package kr.ac.tukorea.reminder.mapper;
 import kr.ac.tukorea.reminder.model.QuizModel;
 import org.apache.ibatis.annotations.*;
 
+import java.util.List;
+
 @Mapper
 public interface QuizMapper {
     @Insert("INSERT INTO QUIZ (word, mean, quizSpace) VALUES(#{word}, #{mean}, #{quizSpace})")
@@ -22,7 +24,7 @@ public interface QuizMapper {
     );
 
     @Select("SELECT * FROM QUIZ WHERE quizSpace=#{quizSpace}")
-    QuizModel getQuizList(@Param("quizSpace") int quizSpace);
+    List<QuizModel> getQuizList(@Param("quizSpace") int quizSpace);
 
     @Update("UPDATE QUIZ SET quizSpace=#{quizSpace} WHERE word=#{word}")
     int updateQuizSpace(
