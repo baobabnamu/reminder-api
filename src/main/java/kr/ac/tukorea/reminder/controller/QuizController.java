@@ -19,7 +19,7 @@ public class QuizController {
     @GetMapping("/hello")
     public String hello(
     ) {
-        return "Hello API!";
+        return "${JAWSDB_HOST} Hello API!";
     }
 
 //    Quiz Insert API
