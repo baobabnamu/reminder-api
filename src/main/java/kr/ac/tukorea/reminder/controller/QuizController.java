@@ -15,6 +15,13 @@ public class QuizController {
         this.mapper = mapper;
     }
 
+//    Hello API
+    @GetMapping("/hello")
+    public String hello(
+    ) {
+        return "Hello API!";
+    }
+
 //    Quiz Insert API
     @PostMapping("/quiz/add")
     public void addQuiz(
