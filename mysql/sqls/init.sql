@@ -8,6 +8,6 @@ CREATE TABLE QUIZ (
                       word VARCHAR(50) NOT NULL,
                       mean VARCHAR(50) NOT NULL,
                       quizSpace INT(1) NOT NULL,
-                      uid VARCHAR(50) NOT NULL
+                      uid VARCHAR(50) NOT NULL,
                       PRIMARY KEY(word)
 );

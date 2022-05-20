@@ -5,7 +5,6 @@ import kr.ac.tukorea.reminder.model.QuizModel;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Map;
 
 @RestController
 public class QuizController {
@@ -29,9 +28,10 @@ public class QuizController {
     ) {
         String word = quizModel.getWord();
         String mean = quizModel.getMean();
+        String uid = quizModel.getUid();
         int quizSpace = 1;
 
-        mapper.insertQuiz(word, mean, quizSpace);
+        mapper.insertQuiz(word, mean, quizSpace, uid);
     }
 
 //    Quiz Delete API
@@ -40,7 +40,8 @@ public class QuizController {
             @RequestBody() QuizModel quizModel
     ) {
         String word = quizModel.getWord();
-        mapper.deleteQuiz(word);
+        String uid = quizModel.getUid();
+        mapper.deleteQuiz(word, uid);
     }
 
 //    Quiz Update API
@@ -50,15 +51,18 @@ public class QuizController {
     ) {
         String word = quizModel.getWord();
         String mean = quizModel.getMean();
-        mapper.updateQuiz(word, mean);
+        String uid = quizModel.getUid();
+        mapper.updateQuiz(word, mean, uid);
     }
 
 //    Get QuizList API
     @GetMapping("/quiz/{quizSpace}") // path variable 매칭됨
     public List<QuizModel> getQuizList(
-            @PathVariable("quizSpace") int quizSpace
+            @PathVariable("quizSpace") int quizSpace,
+            @RequestBody() QuizModel quizModel
     ) {
-        return mapper.getQuizList(quizSpace);
+        String uid = quizModel.getUid();
+        return mapper.getQuizList(quizSpace, uid);
     }
 
 //  Update Quiz Space API
@@ -68,6 +72,7 @@ public class QuizController {
     ) {
         String word = quizModel.getWord();
         int quizSpace = quizModel.getQuizSpace();
-        mapper.updateQuizSpace(word, quizSpace);
+        String uid = quizModel.getUid();
+        mapper.updateQuizSpace(word, quizSpace, uid);
     }
 }
