@@ -4,11 +4,13 @@ public class QuizModel {
     private String word;
     private String mean;
     private int quizSpace;
+    private String uid;
 
-    public QuizModel(String word, String mean, int quizSpace) {
+    public QuizModel(String word, String mean, int quizSpace, String uid) {
         this.word = word;
         this.mean = mean;
         this.quizSpace = quizSpace;
+        this.uid = uid;
     }
 
 
@@ -22,6 +24,10 @@ public class QuizModel {
 
     public int getQuizSpace() {
         return quizSpace;
+    }
+
+    public String getUid() {
+        return uid;
     }
 }
 
