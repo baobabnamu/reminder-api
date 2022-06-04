@@ -45,7 +45,7 @@ public class QuizController {
     }
 
 //    Quiz Update API
-    @PutMapping("/quiz/update") // path variable 매칭됨
+    @PutMapping("/quiz/update")
     public void modifyQuiz(
             @RequestBody() QuizModel quizModel
     ) {
@@ -56,11 +56,11 @@ public class QuizController {
     }
 
 //    Get QuizList API
-    @GetMapping("/quiz/{quizSpace}") // path variable 매칭됨
+    @PostMapping("/quiz")
     public List<QuizModel> getQuizList(
-            @PathVariable("quizSpace") int quizSpace,
             @RequestBody() QuizModel quizModel
     ) {
+        int quizSpace = quizModel.getQuizSpace();
         String uid = quizModel.getUid();
         return mapper.getQuizList(quizSpace, uid);
     }
