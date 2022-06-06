@@ -13,13 +13,13 @@ Heroku를 통해 배포되어 Reminder 앱에서 호출될 Spring Boot REST API 
 - 퀴즈 삭제 API  
   |EndPoint|JSON|Query Param|Path Param|Response|  
   |---|---|---|---|---|
-  |POST /quiz/del|{"word":"apple"}|||200|
+  |DELETE /quiz/del|{"word":"apple"}|||200|
 
 
 - 퀴즈 수정 API  
   |EndPoint|JSON|Query Param|Path Param|Response|  
   |---|---|---|---|---|
-  |POST /quiz/update|{"word":"apple", "mean":"애플"}|||200|
+  |PUT /quiz/update|{"word":"apple", "mean":"애플"}|||200|
 
 
 - 시간공간별 퀴즈 가져오기 API  
@@ -39,4 +39,4 @@ Heroku를 통해 배포되어 Reminder 앱에서 호출될 Spring Boot REST API 
 - 퀴즈 시간공간별 이동하기 API  
   |EndPoint|JSON|Query Param|Path Param|Response|  
   |---|---|---|---|---|
-  |POST /quiz/updateSpace|{"word":"apple", "quizSpace": 2}|||200|
+  |PUT /quiz/updateSpace|{"word":"apple", "quizSpace": 2}|||200|
